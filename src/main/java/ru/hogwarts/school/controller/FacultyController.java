@@ -30,12 +30,14 @@ public class FacultyController {
         return ResponseEntity.ok(addedFaculty);
     }
 
+
     @PutMapping
     @Operation(summary = "Обновление факультета")
     public ResponseEntity<Faculty> update(@RequestBody Faculty faculty) {
         Faculty updatedFaculty = service.update(faculty);
         return ResponseEntity.ok(updatedFaculty);
     }
+
 
     @DeleteMapping("{id}")
     @Operation(summary = "Удаление факультета")
@@ -44,12 +46,14 @@ public class FacultyController {
         return ResponseEntity.ok(deletedFaculty);
     }
 
+
     @GetMapping("{id}")
     @Operation(summary = "Получение факультета по id")
     public ResponseEntity<Faculty> get(@PathVariable Long id) {
         Faculty faculty = service.get(id);
         return ResponseEntity.ok(faculty);
     }
+
 
     @GetMapping("by-color")
     @Operation(summary = "Получение факультетов по цвету")
@@ -58,11 +62,13 @@ public class FacultyController {
         return ResponseEntity.ok(students);
     }
 
+
     @GetMapping("all")
     @Operation(summary = "Получение всех факультетов")
     public ResponseEntity<Collection<Faculty>> getAll() {
         Collection<Faculty> students = service.getAll();
         return ResponseEntity.ok(students);
     }
+
 
 }
